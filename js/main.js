@@ -21,6 +21,7 @@ for (let i = 1; i <= 100; i++) {
 const btnPlay = document.querySelector('.btn-play');
 const initialMain = document.querySelector('.initial-main');
 
+//Aggiungo un eventListener al bottone in caso di click
 btnPlay.addEventListener('click', function () {
   //Nascondo l'immagine iniziale
   initialMain.classList.add('hidden');
@@ -29,8 +30,9 @@ btnPlay.addEventListener('click', function () {
   board.classList.add('show');
 });
 
+//estraggo il node list con tutti gli elementi con classe .cell
 const domCelle = document.querySelectorAll('.cell');
-
+//Assegno a ogni elemento del node list, un eventListener. che in caso di click aggiunge la classe active-cell
 for (let j = 0; j < domCelle.length; j++) {
   domCelle[j].addEventListener('click', function () {
     console.log(`Hai selezionato la cella: ${j + 1}`);
