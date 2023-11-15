@@ -8,6 +8,26 @@ function myCreateElement(tag, className, content) {
   return element;
 }
 
+//Funzione che mi serve per creare le celle e far si che si colori quelle cliccate
+function cellaCreaColora(className, quantita) {
+  /*CICLO FOR CHE RIPRENDE LA FUNZIONE PER CREARE 100 ELEMENTI */
+  for (let i = 1; i <= quantita; i++) {
+    const myElement = myCreateElement('div', className, i);
+    board.append(myElement);
+  }
+
+  /* COLORO LE CELLE */
+  //estraggo il node list con tutti gli elementi con classe .cell
+  const domCelle = document.querySelectorAll(`.${className}`);
+  //Assegno a ogni elemento del node list, un eventListener. che in caso di click aggiunge la classe active-cell
+  for (let j = 0; j < domCelle.length; j++) {
+    domCelle[j].addEventListener('click', function () {
+      console.log(`Hai selezionato la cella: ${j + 1}`);
+      domCelle[j].classList.add('active-cell');
+    });
+  }
+}
+
 //Estrapolo il contenitore con class .board
 const board = document.querySelector('.board');
 
@@ -32,74 +52,17 @@ btnPlay.addEventListener('click', function () {
   //Ogni volta che faccio 'click', elimino tutto il contenuto in .board
   board.innerHTML = '';
 
-  /* 
-  ----------
-  FACILE
-  ----------
-  */
+  /* FACILE */
   if (valoreSelezionato === 'facile') {
-    /*CICLO FOR CHE RIPRENDE LA FUNZIONE PER CREARE 100 ELEMENTI */
-    for (let i = 1; i <= 100; i++) {
-      const myElement = myCreateElement('div', 'cell-facile', i);
-      board.append(myElement);
-    }
-    /* COLORO LE CELLE */
-    //estraggo il node list con tutti gli elementi con classe .cell
-    const domCelle = document.querySelectorAll('.cell-facile');
-
-    //Assegno a ogni elemento del node list, un eventListener. che in caso di click aggiunge la classe active-cell
-    for (let j = 0; j < domCelle.length; j++) {
-      domCelle[j].addEventListener('click', function () {
-        console.log(`Hai selezionato la cella: ${j + 1}`);
-        domCelle[j].classList.add('active-cell');
-      });
-    }
+    cellaCreaColora('cell-facile', 100);
     console.log('Difficoltà: Facile');
-    /* 
-    ----------
-    NORMALE
-    ----------
-    */
+    /* NORMALE */
   } else if (valoreSelezionato === 'normale') {
-    /*CICLO FOR CHE RIPRENDE LA FUNZIONE PER CREARE 81 ELEMENTI */
-    for (let i = 1; i <= 81; i++) {
-      const myElement = myCreateElement('div', 'cell-normale', i);
-      board.append(myElement);
-    }
-    /* COLORO LE CELLE */
-    //estraggo il node list con tutti gli elementi con classe .cell
-    const domCelle = document.querySelectorAll('.cell-normale');
-
-    //Assegno a ogni elemento del node list, un eventListener. che in caso di click aggiunge la classe active-cell
-    for (let j = 0; j < domCelle.length; j++) {
-      domCelle[j].addEventListener('click', function () {
-        console.log(`Hai selezionato la cella: ${j + 1}`);
-        domCelle[j].classList.add('active-cell');
-      });
-    }
+    cellaCreaColora('cell-normale', 81);
     console.log('Difficoltà: Normale');
-    /* 
-    ----------
-    DIFFICILE
-    ----------
-    */
+    /* DIFFICILE */
   } else {
-    /*CICLO FOR CHE RIPRENDE LA FUNZIONE PER CREARE 49 ELEMENTI */
-    for (let i = 1; i <= 49; i++) {
-      const myElement = myCreateElement('div', 'cell-difficile', i);
-      board.append(myElement);
-    }
-    /* COLORO LE CELLE */
-    //estraggo il node list con tutti gli elementi con classe .cell
-    const domCelle = document.querySelectorAll('.cell-difficile');
-
-    //Assegno a ogni elemento del node list, un eventListener. che in caso di click aggiunge la classe active-cell
-    for (let j = 0; j < domCelle.length; j++) {
-      domCelle[j].addEventListener('click', function () {
-        console.log(`Hai selezionato la cella: ${j + 1}`);
-        domCelle[j].classList.add('active-cell');
-      });
-    }
+    cellaCreaColora('cell-difficile', 49);
     console.log('Difficoltà: Difficile');
   }
 });
