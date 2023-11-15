@@ -74,6 +74,7 @@ main {
   display: flex;
   flex-wrap: wrap;
   align-content: start;
+  cursor: pointer;
 }
 
 .cell-facile {
