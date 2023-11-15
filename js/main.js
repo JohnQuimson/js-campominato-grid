@@ -11,23 +11,49 @@ function myCreateElement(tag, className, content) {
 //Estrapolo il contenitore con class .board
 const board = document.querySelector('.board');
 
-//Ciclo for che riprende la funzione per creare 100 elementi
-for (let i = 1; i <= 100; i++) {
-  const myElement = myCreateElement('div', 'cell', i);
-  board.append(myElement);
-}
-
 //estraggo il bottone e il div in cui ci sono l'img e testo iniziale
 const btnPlay = document.querySelector('.btn-play');
 const initialMain = document.querySelector('.initial-main');
 
+//Estrapolo il selettore di difficolta, per poi prenderne il valore
+const selectDifficolta = document.getElementById('select-difficolta');
+
 //Aggiungo un eventListener al bottone in caso di click
 btnPlay.addEventListener('click', function () {
+  // Prendo il valore
+  const valoreSelezionato = selectDifficolta.value;
+
   //Nascondo l'immagine iniziale
   initialMain.classList.add('hidden');
   //Mostro la tabella
   board.classList.remove('hidden');
   board.classList.add('show');
+
+  //Ogni volta che faccio 'click', elimino tutto il contenuto in .board
+  board.innerHTML = '';
+
+  if (valoreSelezionato === 'facile') {
+    //Ciclo for che riprende la funzione per creare 100 elementi
+    for (let i = 1; i <= 100; i++) {
+      const myElement = myCreateElement('div', 'cell-facile', i);
+      board.append(myElement);
+    }
+    console.log('facile');
+  } else if (valoreSelezionato === 'normale') {
+    //Ciclo for che riprende la funzione per creare 81 elementi
+    for (let i = 1; i <= 81; i++) {
+      const myElement = myCreateElement('div', 'cell-normale', i);
+      board.append(myElement);
+    }
+    console.log('normale');
+  } else {
+    //Ciclo for che riprende la funzione per creare 49 elementi
+    for (let i = 1; i <= 49; i++) {
+      const myElement = myCreateElement('div', 'cell-difficile', i);
+      board.append(myElement);
+    }
+    console.log('difficile');
+  }
 });
 
 //estraggo il node list con tutti gli elementi con classe .cell

@@ -76,12 +76,30 @@ main {
   align-content: start;
 }
 
-.cell {
+.cell-facile {
   display: flex;
   justify-content: center;
   align-items: center;
   height: calc(100% / 10);
   width: calc(100% / 10);
+  border: 1px solid black;
+}
+
+.cell-normale {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100% / 9);
+  width: calc(100% / 9);
+  border: 1px solid black;
+}
+
+.cell-difficile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100% / 7);
+  width: calc(100% / 7);
   border: 1px solid black;
 }
 
