@@ -3,3 +3,37 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header,
+footer {
+  background-color: #e8e4e6;
+}
+
+main {
+  flex-grow: 1;
+  background-color: #004643;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.board {
+  border: 1px solid red;
+  height: 600px;
+  width: 600px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: start;
+}
+
+.cell {
+  height: calc(100% / 10);
+  width: calc(100% / 10);
+  border: 1px solid black;
+}
