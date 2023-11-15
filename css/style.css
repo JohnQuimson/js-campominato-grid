@@ -15,12 +15,9 @@ body {
 HEADER
 -------------- 
 */
-header,
-footer {
-  background-color: #e8e4e6;
-}
 
 header {
+  background-color: #e8e4e6;
   display: flex;
   justify-content: space-between;
   padding: 15px;
@@ -36,6 +33,14 @@ header .dx {
   display: flex;
   align-items: center;
   gap: 20px;
+}
+
+.btn-play {
+  cursor: pointer;
+  border: 1px solid black;
+  padding: 5px 20px;
+  border-radius: 10px;
+  background-color: #f9bc60;
 }
 
 /*
@@ -88,12 +93,19 @@ main {
   background-color: #3da9fc;
 }
 
-.btn-play {
-  cursor: pointer;
-  border: 1px solid black;
-  padding: 5px 20px;
-  border-radius: 10px;
-  background-color: #f9bc60;
+/*
+--------------
+FOOTER
+-------------- 
+*/
+footer {
+  padding: 15px;
+  background-color: #001e1d;
+  color: #72757e;
+}
+
+footer span {
+  color: red;
 }
 
 .hidden {
