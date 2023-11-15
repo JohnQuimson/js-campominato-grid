@@ -8,8 +8,13 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-
+/*
+--------------
+HEADER
+-------------- 
+*/
 header,
 footer {
   background-color: #e8e4e6;
@@ -18,11 +23,13 @@ footer {
 header {
   display: flex;
   justify-content: space-between;
+  padding: 15px;
 }
 
 header .sx {
   display: flex;
   align-items: center;
+  gap: 20px;
 }
 
 header .dx {
@@ -30,12 +37,29 @@ header .dx {
   align-items: center;
 }
 
+/*
+--------------
+MAIN 
+-------------- 
+*/
 main {
   flex-grow: 1;
   background-color: #004643;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.initial-main h3,
+.initial-main h2 {
+  color: #e8e4e6;
+  text-align: center;
+}
+.initial-main h3 {
+  margin-top: 20px;
+}
+.initial-main h2 {
+  color: #e16162;
 }
 
 .board {
@@ -51,4 +75,20 @@ main {
   height: calc(100% / 10);
   width: calc(100% / 10);
   border: 1px solid black;
+}
+
+.btn-play {
+  cursor: pointer;
+  border: 1px solid black;
+  padding: 5px 20px;
+  border-radius: 10px;
+  background-color: #f9bc60;
+}
+
+.hidden {
+  display: none;
+}
+
+.show {
+  opacity: 1;
 }

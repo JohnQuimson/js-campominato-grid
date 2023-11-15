@@ -18,3 +18,12 @@ for (let i = 1; i <= 100; i++) {
 }
 
 const btnPlay = document.querySelector('.btn-play');
+const initialMain = document.querySelector('.initial-main');
+
+btnPlay.addEventListener('click', function () {
+  //Nascondo l'immagine iniziale
+  initialMain.classList.add('hidden');
+  //Mostro la tabella
+  board.classList.remove('hidden');
+  board.classList.add('show');
+});
